@@ -6,12 +6,12 @@ $.getJSON('./data/mode-share.geojson', function(rawData) {
 
   mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubmlmZXIiLCJhIjoiY2t6bmZpaTB4MmNyMjJucXIyM2s2a3M5OCJ9.yfIClB9zes7RF2saxS5JlA'
 
-  var manCenter = [-73.948265, 40.795157]
+  var manCenter = [-73.948265, 40.795157] //somewhere on the upper east side. good center for just Manhattan
 
 
   var map = new mapboxgl.Map({
     container: 'mapContainer', // HTML container id
-    style: 'mapbox://styles/mapbox/dark-v9', // style URL
+    style: 'mapbox://styles/mapbox/dark-v9', // look for something that can better display transit routes/ stops. Contextualize the numbers
     center: manCenter, // starting position as [lng, lat]
     zoom: 11,
 
@@ -32,6 +32,7 @@ $.getJSON('./data/mode-share.geojson', function(rawData) {
           'interpolate',
           ['linear'],
           ['get', 'MN_ModeShare_% Subway or elevated rail'],
+          // blue/purp graidient from QGIS
           .08,
           '#edf8fb',
           .23,
